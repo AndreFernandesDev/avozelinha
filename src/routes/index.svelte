@@ -1,2 +1,25 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Navbar from '$lib/components/Navbar.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import Services from '$lib/components/Services.svelte';
+	import Testimonials from '$lib/components/Testimonials.svelte';
+	import Contact from '$lib/components/Contact.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import OpenHours from '$lib/components/OpenHours.svelte';
+</script>
+
+<main>
+	<Navbar />
+	<Hero />
+	<OpenHours />
+	<Services />
+	<Testimonials />
+	<Contact />
+</main>
+<Footer />
+
+<style>
+	main {
+		width: 100%;
+	}
+</style>
