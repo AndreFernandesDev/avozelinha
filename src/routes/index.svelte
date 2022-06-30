@@ -6,6 +6,7 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import OpenHours from '$lib/components/OpenHours.svelte';
+	import Map from '$lib/components/Map.svelte';
 </script>
 
 <main>
@@ -14,6 +15,7 @@
 	<OpenHours />
 	<Services />
 	<Testimonials />
+	<Map />
 	<Contact />
 </main>
 <Footer />

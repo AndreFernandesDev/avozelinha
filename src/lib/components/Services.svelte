@@ -4,31 +4,37 @@
 	import Spacing from '$lib/components/Spacing.svelte';
 	import Text from '$lib/components/Text.svelte';
 
+	type ImageSettings = {
+		width?: string;
+	};
 	type Service = {
 		title: string;
-		description: string;
+		types: Array<string>;
+		img: string;
+		imgSettings?: ImageSettings;
 	};
 
 	const services: Array<Service> = [
 		{
 			title: 'Semi Frios',
-			description: 'Empresa especializada na prevenção e controlo de pragas.'
+			types: ['Semi Frios', 'Bolos Secos', 'Bolas de berlim'],
+			img: 'Cupcake'
 		},
 		{
-			title: 'Convetaria',
-			description: 'Empresa especializada na prevenção e controlo de pragas.'
+			title: 'Semi Frios',
+			types: ['Semi Frios', 'Bolos Secos', 'Bolas de berlim'],
+			img: 'SliceCake',
+			imgSettings: {
+				width: '75%'
+			}
 		},
 		{
-			title: 'Desbaratizacao',
-			description: 'Empresa especializada na prevenção e controlo de pragas.'
-		},
-		{
-			title: 'Desbaratizacao',
-			description: 'Empresa especializada na prevenção e controlo de pragas.'
-		},
-		{
-			title: 'Desbaratizacao',
-			description: 'Empresa especializada na prevenção e controlo de pragas.'
+			title: 'Semi Frios',
+			types: ['Semi Frios', 'Bolos Secos', 'Bolas de berlim'],
+			img: 'Bread',
+			imgSettings: {
+				width: '80%'
+			}
 		}
 	];
 </script>
@@ -41,7 +47,12 @@
 			<Text type="h2" fontType="Kraft">Especialidades</Text>
 			<Spacing spacing="--mg-lg" />
 			{#each services as service}
-				<SingleService title={service.title} description={service.description} />
+				<SingleService
+					title={service.title}
+					types={service.types}
+					img={service.img}
+					imgSettings={service.imgSettings}
+				/>
 			{/each}
 		</div>
 	</Container>

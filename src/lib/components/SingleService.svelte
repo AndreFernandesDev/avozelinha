@@ -1,33 +1,48 @@
 <script lang="ts">
+	type ImageSettings = {
+		width?: string;
+	};
+
 	export let title: string;
-	export let description: string;
+	export let types: Array<string>;
+	export let img: string;
+	export let imgSettings: ImageSettings = {};
 
 	import Text from '$lib/components/Text.svelte';
-	import Cupcake from '$lib/icons/Cupcake.svelte';
+	import ServicesType from '$lib/icons/ServicesType.svelte';
 	import Spacing from '$lib/components/Spacing.svelte';
 </script>
 
 <div id="wrapper">
 	<div id="icon">
 		<img id="ring" src="/images/ring.png" alt="" />
-		<div id="image">
-			<Cupcake />
+		<div id="image" style="width:{imgSettings.width ? imgSettings.width : ''}">
+			<ServicesType type={img} />
 		</div>
 	</div>
 	<div id="content">
 		<Text type="h3" fontSize={'2rem'} fontType={'Chalk'}>{title}</Text>
-		<Spacing spacing="--mg-sm" />
-		<Text>{description}</Text>
+		<Spacing spacing="--mg-md" />
+		<ul>
+			{#each types as type}
+				<li>&#8226; {type}</li>
+			{/each}
+		</ul>
 	</div>
 </div>
 
 <style>
+	li {
+		font-size: 1.1rem;
+		margin-bottom: var(--mg-sm);
+	}
+
 	#ring {
 		height: 100%;
 		border-radius: 8px;
 		position: absolute;
 		top: 0;
-		left: -30%;
+		left: -40%;
 	}
 
 	#wrapper {
@@ -41,12 +56,13 @@
 
 	#content {
 		flex-direction: column;
-		width: 50%;
+		justify-content: center;
+		width: 55%;
 		min-height: 250px;
 	}
 
 	#icon {
-		width: 50%;
+		width: 45%;
 		position: relative;
 		align-items: center;
 	}
