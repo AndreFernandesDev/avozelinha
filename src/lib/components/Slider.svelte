@@ -75,7 +75,7 @@
 	#buttonRight {
 		position: absolute;
 		bottom: -20px;
-		left: 25%;
+		left: 22%;
 		transform: rotate(-180deg);
 	}
 </style>
